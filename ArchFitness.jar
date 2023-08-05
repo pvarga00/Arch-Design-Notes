@@ -1,0 +1,32 @@
+
+# Code Snippets & Fitness Functions
+
+## Cyclic Dependencies Check
+### Fitness function to detect component cycles:
+public class CycleChk {
+  private JDepend jDeps;
+
+  @BeforeEach
+  void init(){
+    jDeps = new JDepend();
+    jDeps.addDirectory("/pathtoproject/persistence/classes");
+    jDeps.addDirectory("/pathtoproject/web/classes");
+     jDeps.addDirectory("/pathtoproject/3rdpartyjars");
+  }
+
+  @Test
+  void testAllPkgs(){
+    Collection pkgs = jDeps.analyze();
+    assertEquals("Cycles exist. Please resolve by decoupling., false, jDeps.containsCycles());
+    // Add to CI/CD pipelines to validate if cyclic dependencies exist, fail deploy if accidental introductions are added/found.
+    // Especially critical for traditional N-tiered apps, across layers: presentation, controllers, services, persistance, or databases... etc.)
+  }
+}
+
+### ArchUnit fitness functions helps to respect/govern compliance & arch design decisions, by disallowing drifts
+{
+  // TODO : implenment L8R
+
+
+
+}

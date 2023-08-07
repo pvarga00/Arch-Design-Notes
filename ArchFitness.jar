@@ -25,8 +25,28 @@ public class CycleChk {
 
 ### ArchUnit fitness functions helps to respect/govern compliance & arch design decisions, by disallowing drifts
 {
-  // TODO : implenment L8R
+  // Establish arch principles (outside diagrams and artifacts) and verify on an ongoing basis
+  layeredArch()
+    .layer("Controller").definedBy("..controller")
+    .layer("Service").definedBy("..service")
+    .layer("Persistence").definedBy("..persistence")
+
+    .whereLayer("Controller").mayNotBeAccessByAnyLayer()
+    .whereLayer("Service").mayOnlyBeAccessedLayers("Controller")
+    .whereLayer("Persistence").mayNotBeAccessByAnyLayer("Service")
+
+    // This function checks for, and blocks implementers from eroding the long-term health of the architectural design
+}
 
 
-
+### NetArchCheck fitness function for layer verification
+{
+  // Classes in the presentation layer should not directly reference repositories
+  var result = Types.InCurrentDomain()
+  .That()
+  .ResideInNamespace("NetArchCheck.SampleLib.Presentation")
+  .ShouldNot()
+  .HaveDependencyOn("NetArchCheck.SampleLib.Data")
+  .GetResult()
+  .IsSuccessful;
 }

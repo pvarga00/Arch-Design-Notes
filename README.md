@@ -51,4 +51,4 @@ Speed wins in the marketplace, NLS, city and self-service. Nature of cloud based
 
 ![AWS Arch Diagram](https://github.com/pvarga00/Arch-Design-Notes/blob/main/Default%20AWS%20Arch%20Template.drawio.svg)
 ![PartCatalog ArchDiag](https://github.com/pvarga00/Arch-Design-Notes/blob/main/Sample%20Parts%20Catalog.svg)
-![AWS EC2 ArchDiag]https://github.com/pvarga00/Arch-Design-Notes/blob/main/ec2-basic-arch.png)
+![AWS EC2 ArchDiag](https://github.com/pvarga00/Arch-Design-Notes/blob/main/ec2-basic-arch.png)
